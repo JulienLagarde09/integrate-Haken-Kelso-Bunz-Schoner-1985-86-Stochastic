@@ -1,5 +1,5 @@
 # integrate-Haken-Kelso-Bunz-1985-Stochastic
-http://www.scholarpedia.org/article/Haken-Kelso-Bunz_model
+See: http://www.scholarpedia.org/article/Haken-Kelso-Bunz_model
 
 Matlab codes to integrate using Euler
 Contains 3 systems:
@@ -8,7 +8,8 @@ Contains 3 systems:
 3) one HKB single oscillator driven by a period force, the frequency (pulsation) of which increases in loops
 
 simulation (numerical integration) equation HKB relative phase dynamics
-euler integration with noise
+
+Using the Euler integration with noise
 Langevin equation
 BTW: a local linearization is the classic Ornstein Uhlenbeck process
  b/a determines stability
@@ -22,7 +23,8 @@ Remember: When you integrate a white noise you obtain the Wiener process (Browni
 This could be done (future?) in Julia: see https://diffeq.sciml.ai/stable/tutorials/sde_example/
 
 Noise: HKB driven equation becomes a Langevin equation (stochastic differential eq; SDE)
-Euler algo logic:
+
+The basic Euler algo logic:
 starts with initial conditions of state (init; thus t = 1 thus y = init), pass it into the ODE to compute
 the derivatives of the 1 dimensions ydot
 compute the change in state for the next time step (time(i) with dt*ydot and add
