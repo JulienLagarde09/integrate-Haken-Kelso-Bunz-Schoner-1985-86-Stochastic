@@ -1,20 +1,20 @@
-# integrate-Haken-Kelso-Bunz-1985-Stochastic
+# Integrate the model for a theory of coordination:
+Stochastic- Haken-Kelso-Bunz-1985- Schoner et al. 1986. 
 See: http://www.scholarpedia.org/article/Haken-Kelso-Bunz_model
 
-Matlab codes to integrate using Euler
+This famous theory of human coordination predicted: Critical slowing down
+and critical fluctuations, among other dynamical features.
+Brought to the front concepts and methods in brain sciences akin to:
+- "tipping point" and "early signals"- very fruitful currently
+in sciences of complex systems.
+
+A set of Matlab codes to integrate that model at reduced dimensional level (collective variable/ order parameter),
+and at the level of the evolution of the components and movement itself using Euler scheme.
 Contains 3 systems:
 1) HKB relative phase dynamics
 2) HKB coupled oscillators
-3) one HKB single oscillator driven by a period force, the frequency (pulsation) of which increases in loops
+3) one HKB single oscillator driven by a period force, the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
-simulation (numerical integration) equation HKB relative phase dynamics
-
-Using the Euler integration with noise
-Langevin equation
-BTW: a local linearization is the classic Ornstein Uhlenbeck process
- b/a determines stability
-antiphase stable: b/a = 1 to < 0.25 Hz
-deterministic case: bifurcation at a = 4 * b
 
 Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
 Numerous textbooks (Riske, Platen, Gardiner, Kloeden, Haken)
