@@ -1,5 +1,6 @@
 # Integrate the model for a theory of coordination:
 Stochastic- Haken-Kelso-Bunz-1985- Schoner et al. 1986. 
+
 See: http://www.scholarpedia.org/article/Haken-Kelso-Bunz_model
 
 This famous theory of human coordination predicted: Critical slowing down
@@ -16,9 +17,9 @@ Contains 3 systems:
 3) one HKB single oscillator driven by a period force, the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
 
-Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
-Numerous textbooks (Riske, Platen, Gardiner, Kloeden, Haken)
-Remember: When you integrate a white noise you obtain the Wiener process (Brownian motion)
+Reference oabout the integration: Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
+Or numerous textbooks (Risken, Platen, Gardiner, Kloeden, Haken)
+*Remember: When you integrate a white noise you obtain the Wiener process (Brownian motion)
 
 This could be done (future?) in Julia: see https://diffeq.sciml.ai/stable/tutorials/sde_example/
 
