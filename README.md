@@ -11,7 +11,7 @@ in sciences of complex systems.
 A set of Matlab codes to integrate that model at reduced dimensional level (collective variable/ order parameter),
 and at the level of the evolution of the components and movement itself using Euler scheme.
 Contains 3 systems:
-1) HKB relative phase dynamics
+1) HKB relative phase dynamics: Changing parameters controlling stability at the half time. See what happens!
 2) HKB coupled oscillators
 3) one HKB single oscillator driven by a period force, the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
