@@ -1,94 +1,129 @@
-% stochastic HKB model, 2 oscillators = 4D, and couplings
-% initial conditions = antiphase, can change ligne 11
-% integraton scheme = Euler method
-% bifurcation parameter = omega for frequency
-% omega_1 = 1; % antiphase stable
-% try also omega_1 = 1.3;% jumps from antiphase to inphase due
-% to noise and weaker stability
-
-% use Euler integration with noise: + sqrt(2*D(kk))*randn(size(ydot))*dt
-% Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
-% Numerous textbooks (Riske, Platen, Gardiner, Kloeden, Haken)
-%% This could be done in Julia: see https://diffeq.sciml.ai/stable/tutorials/sde_example/
-% Noise: HKB driven equation becomes a Langevin equation (stochastic differential eq; SDE)
-% Euler algo logic:
-% starts with initial conditions of state (init; thus t = 1 thus y = init), pass it into the ODE to compute
-% the derivatives of the 3 dimensions ydot(:) (dim = 3)
-% compute the change in state for the next time step (time(i) with dt*ydot and add
-% it to the initial y(i,:) and add the noise, to get the new y(i+1,:), NOTE the time is
-% incrementing with the i loop
-% you get the first y(1,:) with init, the next y(2,:) with the sequence described above, and you do the loop again:
-% pass y(2,:) in the ODE to get ydot etc to get y(3,:)
-% etc
 
 
+init = [0 0.3 0 0.3];
 
-%% initial conditions
-V1 = 0.3;
-V2 = V1 *(-1);% *(-1) for antiphase, *(1) for inphase
-xin = [0 V1 0 V2];
-%%
-% integration parameters
-dt = 0.008; % timestep
-iters = 50000; %iterations
+
+xin = init;
+dt = 0.01; % timestep
+iters = 10000; %iterations
 time = [0:dt:iters*dt];
-% noise strength
-D = [0.01;0.01;0.01;0.01];
+
+D = [0.5;0.5;0.5;0.5]; %noise strength
 
 y  = [];
-%% parameter controlling frequency
-omega_1 = 1.3;
-omega_2 = omega_1;% simplest case = symmetric
 
-        y = [];
+for kk = 1%:length(D) % For each value of noise
+
+        y=[];
         y = xin; % Get Correct x & y as initial conditions
         
         
         for ii = 1:length(time) % integrate over time
             
-            ydot = coupled_hkb_ode(time(ii),y(ii,:),omega_1,omega_2); ydot = ydot';
+%             if ii == 10
+%                 pert = 0.1;
+%             else pert = 0;
+%             end
+            ydot = coupled_hkb_ode_ED08(time(ii),y(ii,:)); ydot = ydot';
             
-            y(ii+1,:) = y(ii,:) + dt*ydot + sqrt(2*D(kk))*randn(size(ydot))*dt;
-
+            y(ii+1,:) = y(ii,:) + dt*ydot + sqrt(2*D(kk))*randn(size(ydot))*dt + pert ;
+            
+            %Just a check to define boundary
+%             if y(ii,2) > -4
+%                 break
+%             end %if y > -4
         end % for ii
+%         Y(ii,:) = y;
+        
+
+end % for kk %
 
 
-F_y_2 = y(:,2);% change name, ancient version with filter
-F_y_4 = y(:,4);
+% filtre passe bande
 
-% estimating phases with Hilbert transform (gives a complex number and take
-% the angle of it (in polar coordinate)
-ncut = 100; % to get rid of crap due to the algo behing Hilbert(x)
-ht = hilbert(F_y_2-mean(F_y_2));
-phi1 = angle(ht);% estimation phase 1
-phi1 = phi1(ncut:end-ncut);% virage début fin
-ht = hilbert(F_y_4-mean(F_y_4));
-phi2 = angle(ht);% estimation phase 2
-phi2 = phi2(ncut:end-ncut);
+[vFrequency, vAmplitude] = fastfft(y(:,2), 1, [0]);
+[C,I] = max(vAmplitude);
+F_max_amp = vFrequency(I);
+W1 = F_max_amp - (F_max_amp * (15/100));
+W2 = F_max_amp + (F_max_amp * (15/100));
+
+n = 1; Wn = [W1 W2]/0.5;
+
+[a,b] = butter(n,Wn);
+
+F_y_2=filtfilt(a,b,y(:,2));
+
+[vFrequency, vAmplitude] = fastfft(y(:,4), 1, [0]);
+[C,I] = max(vAmplitude);
+F_max_amp = vFrequency(I);
+W1 = F_max_amp - (F_max_amp * (15/100));
+W2 = F_max_amp + (F_max_amp * (15/100));
+
+n = 1; Wn = [W1 W2]/0.5;
+
+[a,b] = butter(n,Wn);
+
+F_y_4=filtfilt(a,b,y(:,4));
+
+
+% visu
+figure;
+
+subplot(3,1,1)
+plot(y(:,2),'b')
+hold on
+plot(y(:,4),'r')
+hold on
+plot(F_y_2,'c')
+hold on
+plot(F_y_4,'m')
+legend('brut_1', 'brut_2', 'filt_1', 'filt_2')
+
+subplot(3,1,2)
+plot(unwrap(phi(y(:,2),y(:,4))));% unwrap phase relative
+hold on
+plot(unwrap(phi(F_y_2,F_y_4)),'c');%
+legend('brut', 'filt')
+ axis([0 length(time) -20 20 ])
+subplot(3,3,7)
+bin = -3.14:0.05:3.14;
+hist(phi(y(:,2),y(:,4)),bin);% histo phase relative
+title('phi brutes')
+subplot(3,3,8)
+hist(phi(F_y_2,F_y_4),bin);% histo phase relative
+title('phi filtrées')
+subplot(3,6,17)
+fastfft(y(:,2),1,[1]);
+xlim([-0.004112 0.01254]);
+ylim([-100.9 2394]);
+subplot(3,6,18)
+fastfft(F_y_2,1,[1]);
+xlim([-0.004112 0.01254]);
+ylim([-100.9 2394]);
+
+
+ncut=100;
+
+ht=hilbert(y(:,2)-mean(y(:,2)));
+phi1=angle(ht);% estimation phase 1
+phi1=phi1(ncut:end-ncut);% virage début fin
+ht=hilbert((y(:,4)-mean(y(:,4))));
+phi2=angle(ht);% estimation phase 2
+phi2=phi2(ncut:end-ncut);
 phi1 = unwrap(phi1);
 phi2 = unwrap(phi2);% unwrap phases
+% maybe some use
+% A statistical index of the strength of synchronization/ coordination
+% = variance estimate for circular (angles) data
+% = index of dispersion
+synchroindex_brut = (mean(cos(phi1-phi2)))^2 + (mean(sin(phi1-phi2)))^2
 
-phi_rel = phi1 - phi2;
-
-figure
-subplot(3,1,1)
-plot(F_y_2,'b')
-hold on
-plot(F_y_4,'k')
-subplot(3,1,2)
-% plot(unwrap(phi(y(:,2),y(:,4))));% unwrap phase relative
-% hold on
-plot(phi_rel,'k');
-xlabel('\phi')
-axis([0 length(time) -20 20 ])
-
-bin = -7:0.05:7;
-
-subplot(3,3,7)
-hist(phi_rel,bin);% histo phase relative
-title('phi filtrées')
-xlabel('\phi')
-
-
+ht=hilbert(F_y_2-mean(F_y_2));
+phi1=angle(ht);% estimation phase 1
+phi1=phi1(ncut:end-ncut);% virage début fin
+ht=hilbert(F_y_4-mean(F_y_4));
+phi2=angle(ht);% estimation phase 2
+phi2=phi2(ncut:end-ncut);
+phi1 = unwrap(phi1);
 phi2 = unwrap(phi2);% unwrap phases
-synchroindex_filt = (mean(cos(phi1-phi2)))^2 + (mean(sin(phi1-phi2)))^2;
+synchroindex_filt = (mean(cos(phi1-phi2)))^2 + (mean(sin(phi1-phi2)))^2
