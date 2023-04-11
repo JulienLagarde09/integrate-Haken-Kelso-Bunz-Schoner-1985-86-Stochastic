@@ -4,14 +4,15 @@ I made the codes for a french summer school organized by Dr Ghiles MOSTAFAOUI: L
 Coordination dynamics is a theory founded by Scott Kelso and Hermann Haken in the 80's, to study the brain- behavior relations from the perspective of complex systems.
 It is a theory of self-organized brain functions, using constant exchanges between theory, implemented in explicit models, and experiments.
 Here some of the models, notably the HKB model, the excitator model, and a version of the HKB with adaptive frequency, are implemented.
-The tools used for the theory and modelling come to a large extent from the field of synergetics, driven by the research of Hermann Haken,
-and to sum-up it include low dimensional dynamical systems, and physical statistics to deal with Langevin equations/ stochastic differential equations, and Fokker Planck equations.
+The tools used for the theory and modelling come to a large extent from the field of synergetics, driven by the research of Hermann Haken on the slaving principle.
+
+It include ways to make a immensely complex systems like the brain, tractable in a scientific endeavor, using bifurcation theory and low dimensional dynamical systems (center manifold theorem, slow-fast systems, Arnold's tongues, etc...), and physical statistics to deal with effective time scales to link model, predictions, and observed data, using stochastic processes: Langevin equations/ stochastic differential equations, and Fokker Planck equations.
 
 Includes:
 - The HKB coupled oscillators system
 - Solution of the Fokker Planck equation of the order parameter equation of the HKB
 - Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrate the theory of Anold's tongues
-- Single excitator forced by a discrete beat, in the fixed point (discret) regime
+- Single excitator forced by a discrete beat, in the fixed point (discrete) regime
 - Two coupled excitators
 - Frequency adaptive version of the HKB
 
