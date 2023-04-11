@@ -16,6 +16,20 @@ Contains 3 systems:
 2) HKB coupled oscillators
 3) one HKB single oscillator driven by a periodic forcing function (a metronome beat?), the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
+DISCRETE AND CONTINUOUS DYNAMICS: EXCITATOR MODEL 
+This Github contains also the stochastic version of the excitator model by Jirsa & Kelso (2005).
+In the file: Excit_Euler. Both a single excitator perturbed, and two coupled excitators.
+
+% Model from: Viktor Jirsa & Scott Kelso
+% Jirsa, V. K., & Scott Kelso, J. A. (2005). The excitator 
+% as a minimal model for the coordination dynamics of discrete
+% and rhythmic movement generation. Journal of motor behavior, 37(1), 35-51.
+% Very nice test of the model's prediction: Philip Fink et al.
+% Fink, P. W., Kelso, J. S., & Jirsa, V. K. (2009). 
+% Perturbation-induced false starts as a test of 
+% the Jirsa-Kelso Excitator model. 
+% Journal of motor behavior, 41(2), 147-157
+
 
 Reference about the integration: Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
 Or numerous textbooks (Risken, Platen, Gardiner, Kloeden, Haken). See Ito vs Stratonovitch calculi too.
