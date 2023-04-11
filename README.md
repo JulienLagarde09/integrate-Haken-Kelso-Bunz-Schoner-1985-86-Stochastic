@@ -29,12 +29,12 @@ in sciences of complex systems.
 
 A set of Matlab codes to integrate that model at reduced dimensional level (collective variable/ order parameter),
 and at the level of the evolution of the components and movement itself using Euler scheme.
-Contains 3 systems:
+Contains several systems examples:
 1) HKB relative phase dynamics: Changing parameters controlling stability at the half time. See what happens!
 2) HKB coupled oscillators
 3) one HKB single oscillator driven by a periodic forcing function (a metronome beat?), the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
-2) Simulation of discrete and continuous dynamics: The EXCITATOR MODEL 
+4) Simulation of discrete and continuous dynamics: The EXCITATOR MODEL 
 The stochastic version of the excitator model by Jirsa & Kelso (2005).
 In the file: Excit_Euler. Both a single excitator perturbed, and two coupled excitators.
 
@@ -48,8 +48,7 @@ In the file: Excit_Euler. Both a single excitator perturbed, and two coupled exc
 % the Jirsa-Kelso Excitator model. 
 % Journal of motor behavior, 41(2), 147-157
 
-
-3) Simulation of a recent development of the HKB model: The inclusion of frequency adaptation, by Armin Fuchs.
+5) Simulation of a recent development of the HKB model: The inclusion of frequency adaptation, by Armin Fuchs et al. We miss you so much Armin.
 Frequency adaptation is a development of the theory of coupled, or forced, non linear oscillators.
 Several authors have pushed into that direction, Bard Ermentrout in 1991, Loeher Large and Palmer in 2011, and also Auke Ijpeert and collaborators.
 This could connect to a two time scales system. o be continued...
