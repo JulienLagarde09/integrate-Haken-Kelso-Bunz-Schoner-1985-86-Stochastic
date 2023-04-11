@@ -1,17 +1,17 @@
 The aim of this github is to provide examples of models of coordination dynamics for training purposes.
-I made the codes for a french summer school organized by Dr Ghiles MOSTAFAOUI: Le GT8 (Apprentissage et Neurosciences pour la Robotique) du GDR Robotique, 17-20th of October 2022, in the beautiful village net to the ocean of Moliets et Maa, and for a PhD scratch course on coordination dynamics at the EuromovDHM lab in the University of Montpellier, 6-7th of April 2023.
+I made the codes for a french summer school organized by Dr Ghiles MOSTAFAOUI: Le GT8 (Apprentissage et Neurosciences pour la Robotique) du GDR Robotique, 17-20th of October 2022, in the beautiful village next to the ocean of Moliets et Maa, and for a PhD scratch course on coordination dynamics at the EuromovDHM lab in the University of Montpellier, 6-7th of April 2023.
 
 Coordination dynamics is a theory founded by Scott Kelso and Hermann Haken in the 80's, to study the brain- behavior relations from the perspective of complex systems.
 It is a theory of self-organized brain functions, using constant exchanges between theory, implemented in explicit models, and experiments.
 Here some of the models, notably the HKB model, the excitator model, and a version of the HKB with adaptive frequency, are implemented.
 The tools used for the theory and modelling come to a large extent from the field of synergetics, driven by the research of Hermann Haken on the slaving principle.
 
-It include ways to make a immensely complex systems like the brain, tractable in a scientific endeavor, using bifurcation theory and low dimensional dynamical systems (center manifold theorem, slow-fast systems, Arnold's tongues, etc...), and physical statistics to deal with effective time scales to link model, predictions, and observed data, using stochastic processes: Langevin equations/ stochastic differential equations, and Fokker Planck equations.
+It includes tools to make a immensely complex systems like the brain, tractable for scientific endeavor, using bifurcation theory and low dimensional dynamical systems (center manifold theorem, slow-fast systems, Arnold's tongues, etc...), and physical statistics to deal with effective time scales, parameter variation and measurements, in order to link model, predictions, and observed data. This involves using stochastic processes: Langevin equations/ Brownian motion, stochastic differential equations, and Fokker Planck equations.
 
 Includes:
 - The HKB coupled oscillators system
 - Solution of the Fokker Planck equation of the order parameter equation of the HKB
-- Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrate the theory of Anold's tongues
+- Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrates the theory of Anold's tongues
 - Single excitator forced by a discrete beat, in the fixed point (discrete) regime
 - Two coupled excitators
 - Frequency adaptive version of the HKB
@@ -35,12 +35,13 @@ Contains 3 systems:
 3) one HKB single oscillator driven by a periodic forcing function (a metronome beat?), the frequency (pulsation) of which increases in loops, shows the 1:1 Arnold's tongue
 
 2) Simulation of discrete and continuous dynamics: The EXCITATOR MODEL 
-This Github contains also the stochastic version of the excitator model by Jirsa & Kelso (2005).
+The stochastic version of the excitator model by Jirsa & Kelso (2005).
 In the file: Excit_Euler. Both a single excitator perturbed, and two coupled excitators.
 
 % Jirsa, V. K., & Scott Kelso, J. A. (2005). The excitator 
 % as a minimal model for the coordination dynamics of discrete
 % and rhythmic movement generation. Journal of motor behavior, 37(1), 35-51.
+
 % Very nice test of the model's prediction: Philip Fink et al.
 % Fink, P. W., Kelso, J. S., & Jirsa, V. K. (2009). 
 % Perturbation-induced false starts as a test of 
@@ -49,8 +50,9 @@ In the file: Excit_Euler. Both a single excitator perturbed, and two coupled exc
 
 
 3) Simulation of a recent development of the HKB model: The inclusion of frequency adaptation, by Armin Fuchs.
-Frequency adaptation is a developement of the theory of coupled, or forced, non linear oscillators.
-Several authors have pushed into that direction, Bard Ermentrout in 1991, Loeher Large and Palmer in 2011, Auke Ijpeert and collaborators.
+Frequency adaptation is a development of the theory of coupled, or forced, non linear oscillators.
+Several authors have pushed into that direction, Bard Ermentrout in 1991, Loeher Large and Palmer in 2011, and also Auke Ijpeert and collaborators.
+This could connect to a two time scales system. o be continued...
 
 % Nordham, C. A., Tognoli, E., Fuchs, A., & Kelso, J. S. (2018).
 % How interpersonal coordination affects individual behavior 
@@ -58,7 +60,7 @@ Several authors have pushed into that direction, Bard Ermentrout in 1991, Loeher
 % social memory. Ecological Psychology, 30(3), 224-249.
 
 
-
+Miscelaneous
 Reference about the integration scheme: Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
 Or numerous textbooks (Risken, Platen, Gardiner, Kloeden, Haken). See Ito vs Stratonovitch calculi too.
 *Remember: When you integrate a white noise you obtain the Wiener process (Brownian motion)
