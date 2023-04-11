@@ -1,5 +1,5 @@
 The aim of this github is to provide examples of models of coordination dynamics for training purposes.
-I made the codes for a french summer school organized by Dr Ghiles MOSTAFAOUI: Le GT8 (Apprentissage et Neurosciences pour la Robotique) du GDR Robotique, 17-20th of October 2022, in the beautiful village next to the ocean of Moliets et Maa, and for a PhD scratch course on coordination dynamics at the EuromovDHM lab in the University of Montpellier, 6-7th of April 2023.
+I wrote the scripts as training companions to a french summer school organized by Dr Ghiles MOSTAFAOUI: Le GT8 (Apprentissage et Neurosciences pour la Robotique) du GDR Robotique, 17-20th of October 2022, in the beautiful village next to the ocean of Moliets et Maa, and for a PhD scratch course on coordination dynamics at the EuromovDHM lab in the University of Montpellier, 6-7th of April 2023.
 
 Coordination dynamics is a theory founded by Scott Kelso and Hermann Haken in the 80's, to study the brain- behavior relations from the perspective of complex systems.
 It is a theory of self-organized brain functions, using constant exchanges between theory, implemented in explicit models, and experiments.
