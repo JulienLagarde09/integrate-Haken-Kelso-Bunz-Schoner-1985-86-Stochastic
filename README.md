@@ -51,7 +51,7 @@ In the file: Excit_Euler. Both a single excitator perturbed, and two coupled exc
 5) Simulation of a recent development of the HKB model: The inclusion of frequency adaptation, by Armin Fuchs et al. We miss you so much Armin.
 Frequency adaptation is a development of the theory of coupled, or forced, non linear oscillators.
 Several authors have pushed into that direction, Bard Ermentrout in 1991, Loeher Large and Palmer in 2011, and also Auke Ijpeert and collaborators.
-This could connect to a two time scales system. o be continued...
+This could connect to a two time scales system. To be continued...
 
 % Nordham, C. A., Tognoli, E., Fuchs, A., & Kelso, J. S. (2018).
 % How interpersonal coordination affects individual behavior 
@@ -60,6 +60,7 @@ This could connect to a two time scales system. o be continued...
 
 
 Miscelaneous
+
 Reference about the integration scheme: Higham, D. J. (2001). An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM review, 43(3), 525-546.
 Or numerous textbooks (Risken, Platen, Gardiner, Kloeden, Haken). See Ito vs Stratonovitch calculi too.
 *Remember: When you integrate a white noise you obtain the Wiener process (Brownian motion)
