@@ -11,7 +11,7 @@ It includes tools to make a immensely complex systems like the brain, tractable 
 Includes:
 - The HKB coupled oscillators system
 - Solution of the Fokker Planck equation of the order parameter equation of the HKB
-- Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrates the theory of Anold's tongues
+- Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrates the theory of Arnold's tongues
 - Single excitator forced by a discrete beat, in the fixed point (discrete) regime
 - Two coupled excitators
 - Frequency adaptive version of the HKB
