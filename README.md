@@ -6,9 +6,9 @@ It is a theory of self-organized brain functions, using constant exchanges betwe
 Here some of the models, notably the HKB model, the excitator model, and a version of the HKB with adaptive frequency, are implemented.
 The tools used for the theory and modelling come to a large extent from the field of synergetics, driven by Hermann Haken's study of the slaving principle. It touches upon the general problem of pattern formation, non equilibrium systems, synchronization, and of course effects of couplings.
 
-It includes tools to make a immensely complex systems like the brain, tractable for scientific endeavor, using bifurcation theory and low dimensional dynamical systems (center manifold theorem, slow-fast systems, Arnold's tongues, etc...), and physical statistics to deal with effective time scales, parameter variation and measurements, in order to link model, predictions, and observed data. This involves using stochastic processes: Langevin equations/ Brownian motion, stochastic differential equations, and Fokker Planck equations. The paradigm of the double well potential has been particularly instrumental to this field. 
+The theorectical framework aims at making a immensely complex systems like the brain, tractable for scientific endeavor, using bifurcation theory and low dimensional dynamical systems (center manifold theorem, slow-fast systems, Arnold's tongues, etc...), and physical statistics to deal with effective time scales, parameter variation and measurements, in order to link model, predictions, and observed data. This involves using stochastic processes: Langevin equations/ Brownian motion, stochastic differential equations, and Fokker Planck equations. The paradigm of the double well potential has been particularly instrumental to this field. 
 
-Includes:
+This github includes:
 - The HKB coupled oscillators system
 - Solution of the Fokker Planck equation of the order parameter equation of the HKB
 - Single HKB oscillator forced by a sine function (representing a "metronome"), which illustrates the theory of Arnold's tongues
